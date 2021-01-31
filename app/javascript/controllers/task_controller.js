@@ -7,4 +7,14 @@ export default class extends Controller {
     // It gives a cable
     StimulusReflex.register(this)
   }
+
+  destroy(e) {
+    //e.preventDefault()
+
+    const confirmation = confirm("Are you sure?")
+
+    if (confirmation) {
+      this.stimulate("TaskReflex#destroy", e.currentTarget)
+    }
+  }
 }
