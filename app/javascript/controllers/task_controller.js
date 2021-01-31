@@ -8,8 +8,8 @@ export default class extends Controller {
     StimulusReflex.register(this)
   }
 
-  destroy(e) {
-    //e.preventDefault()
+  destroy(element) {
+    element.preventDefault()
 
     const confirmation = confirm("Are you sure?")
 
