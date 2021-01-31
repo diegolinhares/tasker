@@ -1,17 +1,15 @@
 class ListReflex < StimulusReflex::Reflex
+  before_reflex :find_list
+
   def create_task
     sleep 2
-    list.tasks.create(task_params)
+    @list.tasks.create(task_params)
   end
 
   private
 
-  def list
-    List.find(list_id)
-  end
-
-  def list_id
-    element.dataset.list_id
+  def find_list
+    @list = List.find(element.dataset.list_id)
   end
 
   # StimulusReflex serializes and send as params from a form.
