@@ -8,13 +8,13 @@ export default class extends Controller {
     StimulusReflex.register(this)
   }
 
-  destroy(element) {
-    element.preventDefault()
+  destroy(event) {
+    event.preventDefault()
 
     const confirmation = confirm("Are you sure?")
 
     if (confirmation) {
-      this.stimulate("TaskReflex#destroy", element.currentTarget)
+      this.stimulate("TaskReflex#destroy", event.currentTarget)
     }
   }
 }
