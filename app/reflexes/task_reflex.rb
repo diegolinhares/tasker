@@ -10,10 +10,10 @@ class TaskReflex < StimulusReflex::Reflex
   private
 
   def task
-    Task.find(id)
+    Task.find(task_id)
   end
 
-  def id
+  def task_id
     element.dataset.id
   end
   
