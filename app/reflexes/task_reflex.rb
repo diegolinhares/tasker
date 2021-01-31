@@ -1,5 +1,15 @@
 class TaskReflex < StimulusReflex::Reflex
-  def complete
-    Task.find(element.dataset.id).update(completed_at: Time.current)
+  def toggle
+    Task.find(id).update(completed_at: checked ? Time.current : nil)
+  end
+
+  private
+
+  def id
+    element.dataset.id
+  end
+  
+  def checked
+    element.checked
   end
 end
