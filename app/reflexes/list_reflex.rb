@@ -3,7 +3,8 @@ class ListReflex < StimulusReflex::Reflex
 
   def create_task
     sleep 2
-    @list.tasks.create(task_params)
+    @new_task = @list.tasks.create(task_params)
+    @new_task = Task.new if @new_task.persisted?
   end
 
   private
