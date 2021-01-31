@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 gem 'stimulus_reflex'
 gem 'bootstrap_form'
+gem 'acts_as_list'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do

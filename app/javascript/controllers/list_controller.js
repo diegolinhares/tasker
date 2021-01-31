@@ -1,11 +1,23 @@
 import { Controller } from "stimulus"
 import StimulusReflex from "stimulus_reflex"
+import Sortable from "sortablejs"
+import { event } from "jquery"
 
 export default class extends Controller {
-  static targets = ["form"]
+  static targets = ["form", "tasks"]
 
   connect() {
     StimulusReflex.register(this)
+
+    Sortable.create(this.tasksTarget, {
+      onEnd: (event) => {
+        this.reorder(event)
+      }
+    })
+  }
+
+  reorder(event) {
+    this.stimulate("TaskReflex#reorder", event.item, event.newIndex)
   }
 
   beforeCreateTask(element) {

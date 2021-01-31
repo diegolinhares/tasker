@@ -9,6 +9,11 @@ class TaskReflex < StimulusReflex::Reflex
     @task.destroy
   end
 
+  # Third argument from the Stimulus controller
+  def reorder(position)
+    @task.insert_at(position)
+  end
+
   private
 
   def find_task
